@@ -47,5 +47,5 @@ p2p.broadcast({
 ```javascript
 p2p.discoverPeers()
 ```
-
+see [examples](/examples) for more   
 
