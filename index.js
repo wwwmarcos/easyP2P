@@ -4,7 +4,7 @@ const net = require('net')
 
 const NETWORK_ID = 'p2p'
 
-const p2p = new Exchange(NETWORK_ID, { wrtc: wrtc })
+const p2p = new Exchange(NETWORK_ID, {wrtc})
 const peers = []
 
 function getPeers () {
