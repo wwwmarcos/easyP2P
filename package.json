@@ -1,0 +1,14 @@
+{
+  "name": "easy-p2p",
+  "version": "1.0.0",
+  "description": "Helper to build node p2p applications ",
+  "main": "index.js",
+  "repository": "git@github.com:eptaccio/easy-p2p.git",
+  "author": "eptaccio <eptaccio@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "peer-exchange": "^2.2.0",
+    "wrtc": "^0.0.62"
+  }
+}
