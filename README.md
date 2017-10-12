@@ -2,3 +2,48 @@
 Helper to build node p2p applications
 
 Under Construction 🎈
+
+# Usage examples
+
+## Creating new server
+```javascript
+const easyP2P = require('easy-p2p')
+const p2p = easyP2P({networkId: 'peixe'})
+
+p2p.startServer({
+  port: 2626,
+  onConnection: (peer) => {
+    peer.write('welcome')
+  },
+  messageHandler: (peer, message) => {
+    console.log('new message from peer', message)
+  }
+})
+```
+
+## Connect to peer
+```javascript
+
+p2p.connectToPeer({
+  port: 2626,
+  host: 'localhost',
+  messageHandler: (peer, message) => {
+    console.log('new message from peer', message)
+  }
+})
+```
+
+## Broadcast message
+```javascript
+p2p.broadcast({
+  lorem: 'ipmsum',
+  music: 'hello darkness my old friend'
+})
+```
+
+## Discover Peers
+```javascript
+p2p.discoverPeers()
+```
+
+
