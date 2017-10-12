@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vorpal": "^1.12.0"
+  }
+}

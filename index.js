@@ -2,10 +2,10 @@ const defaultWrtc = require('wrtc')
 const Exchange = require('peer-exchange')
 const net = require('net')
 const uuid = require('uuid/v4')
+const peers = []
 
 const EasyP2P = ({networkId = uuid(), wrtc = defaultWrtc} = {}) => {
   const p2p = new Exchange(networkId, {wrtc})
-  const peers = []
 
   const getPeers = () => {
     return peers
@@ -14,21 +14,20 @@ const EasyP2P = ({networkId = uuid(), wrtc = defaultWrtc} = {}) => {
   const startServer = ({port, messageHandler, onConnection}) => {
     const server = net.createServer(socket => p2p.accept(socket, (err, connection) => {
       if (err) throw err
-      onConnection({connection})
       initConnection({connection, messageHandler})
+      onConnection(connection)
     }))
     .listen(port)
 
     return server
   }
 
-  const connectToPeer = ({host, port, messageHandler}) => {
+  const connectToPeer = ({host, port, messageHandler, onConnection}) => {
     const socket = net.connect(port, host, () => p2p.connect(socket, (err, connection) => {
       if (err) throw err
       initConnection({connection, messageHandler})
+      onConnection(connection)
     }))
-
-    return socket
   }
 
   const discoverPeers = () => {
