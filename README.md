@@ -9,7 +9,7 @@ Under Construction 🎈
 
 ## Creating new server
 ```javascript
-const easyP2P = require('easy-p2p')
+const easyP2P = require('easyp2p')
 const p2p = easyP2P({networkId: 'p2pbrothers'})
 
 p2p.startServer({
@@ -25,7 +25,7 @@ p2p.startServer({
 
 ## Connect to peer
 ```javascript
-const easyP2P = require('easy-p2p')
+const easyP2P = require('easyp2p')
 const p2p = easyP2P({networkId: 'p2pbrothers'})
 
 p2p.connectToPeer({
