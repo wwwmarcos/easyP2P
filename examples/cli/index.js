@@ -14,7 +14,6 @@ vorpal
       port,
       onConnection: (peer) => {
         vorpal.log('new peer connection')
-        peer.write({message: 'welcome'})
       },
       messageHandler: (peer, message) => {
         vorpal.log('new message from peer', message)
@@ -34,13 +33,10 @@ vorpal
     } = args
 
     p2p.connectToPeer({
-      port,
       host,
+      port,
       messageHandler: (peer, message) => {
         vorpal.log('new message from peer', message)
-      },
-      onConnection: (connection) => {
-        vorpal.log('conected on new peer')
       }
     })
 
@@ -59,7 +55,7 @@ vorpal
   .command('list', 'list peers')
   .alias('l')
   .action((args, next) => {
-    p2p.getPeers().forEach(peer => vorpal.log(peer.pxpPeer.socket._host))
+    p2p.getPeers().forEach(peer => vorpal.log(peer.pxpPeer.socket))
     next()
   })
 
