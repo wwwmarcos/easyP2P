@@ -1,7 +1,9 @@
-# easy-p2p
+# easyP2P
 Helper to build node p2p applications
 
 Under Construction 🎈
+## Install
+`npm i easyp2p` or `yarn add easyp2p`
 
 # Usage examples
 
@@ -49,3 +51,9 @@ p2p.discoverPeers()
 ```
 see [examples](/examples) for more   
 
+
+### Build with
+- [peer-exchange](https://github.com/mappum/peer-exchange)
+- [uuid](https://github.com/kelektiv/node-uuid)
+- wrtc
+- :heart:
